@@ -1,0 +1,6 @@
+# dsh-assistant-photographer：注册助理摄影师插件
+# 节点侧（exports "."）在宿主进程中运行：注册 photographer_shoot 工具，
+# 并在宿主提供 skills 服务时注册包内 assistant-photographer 技能。
+- insert:
+    - id: assistant-photographer
+      name: dsh-assistant-photographer

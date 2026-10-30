@@ -1,0 +1,60 @@
+{
+  "name": "dsh-assistant-photographer",
+  "version": "0.1.0",
+  "description": "DSH 助理摄影师：先商量拍摄方案再出图，按角色档案保持人物一致，通过 ComfyUI 生成图片",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./comfy": "./lib/comfy.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-photographer-shoot": "./bin/shoot.mjs"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "skills",
+    "examples",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.1-rc.2 <0.3.0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node test/run.mjs"
+  },
+  "dependencies": {
+    "schemastery": "^3.18.0"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "skill",
+    "comfyui",
+    "photography",
+    "image-generation"
+  ],
+  "author": "kingxlyoung",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingxlyoung/dsh-assistant-photographer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kingxlyoung/dsh-assistant-photographer/issues"
+  },
+  "homepage": "https://github.com/kingxlyoung/dsh-assistant-photographer#readme"
+}

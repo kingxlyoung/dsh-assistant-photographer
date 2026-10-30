@@ -1,0 +1,33 @@
+{
+  "_comment": "角色档案模板。复制后填写；留空的字段不会写入提示词。所有内容均为占位示例。",
+  "name": "",
+  "style": "写实摄影 / 动漫插画 / 3D 卡通",
+  "face_and_hair": {
+    "hair": "例：齐肩微卷短发，深棕色，发尾浅色挑染，空气刘海",
+    "eyes": "例：杏眼，深褐色",
+    "face": "例：鹅蛋脸，下巴小巧",
+    "skin": "例：自然肤色，保留皮肤纹理"
+  },
+  "body": {
+    "height": "",
+    "build": "",
+    "notes": "只写角色本身的设定，不要额外夸大身材特征"
+  },
+  "accessories": [
+    {
+      "item": "例：星形发夹",
+      "placement": "例：人物自身左侧（正面画面的右侧）",
+      "occlusion": "被头发或转身遮挡时按真实情况处理，不复制到另一侧"
+    },
+    {
+      "item": "例：细链吊坠",
+      "placement": "例：锁骨中央",
+      "occlusion": "背影只描述后颈链条，负向词加 pendant on back"
+    }
+  ],
+  "negative": [
+    "mirrored accessories",
+    "duplicate accessories"
+  ],
+  "reference_images": []
+}

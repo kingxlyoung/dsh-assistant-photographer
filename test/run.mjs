@@ -133,6 +133,15 @@ try {
     };
     apply(ctx, { comfyUrl });
     assert.equal(tool.name, "photographer_shoot");
+    // 宿主 register() 的硬性契约（0.1.1-rc.2 起各版本一致）：必须声明
+    // output { schema, render }，否则注册抛错、工具与技能都不会出现。
+    assert.equal(typeof tool.output, "object");
+    assert.equal(typeof tool.output.render, "function");
+    assert.equal(tool.output.schema.type, "object");
+    assert.equal(tool.output.schema.additionalProperties, false);
+    assert.ok(tool.output.schema.properties.images);
+    assert.deepEqual(tool.parameters.required, ["prompt"]);
+    assert.equal(tool.parameters.properties.prompt.type, "string");
     assert.equal(provider, skillProvider);
     const listed = await provider.list();
     assert.equal(listed[0].name, "assistant-photographer");
@@ -142,6 +151,10 @@ try {
     const out = await tool.execute({ prompt: "a tree" }, { agent: { session: { header: { cwd: ws } } } });
     assert.ok(out.images[0].startsWith(ws));
     assert.match(out.display, /^!\[成片\]\(</);
+    const blocks = tool.output.render({ prompt: "a tree" }, out);
+    assert.equal(blocks.length, 1);
+    assert.equal(blocks[0].type, "text");
+    assert.ok(blocks[0].text.includes(out.images[0]), "渲染结果应带成片路径");
     await assert.rejects(tool.execute({ prompt: "x", workflow: "missing" }, {}), /未配置名为「missing」/);
   });
 

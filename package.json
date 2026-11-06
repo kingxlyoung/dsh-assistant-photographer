@@ -1,6 +1,6 @@
 {
   "name": "dsh-assistant-photographer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DSH 助理摄影师：先商量拍摄方案再出图，按角色档案保持人物一致，通过 ComfyUI 生成图片",
   "type": "module",
   "main": "lib/index.js",
